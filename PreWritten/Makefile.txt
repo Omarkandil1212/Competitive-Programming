@@ -1,0 +1,30 @@
+# Compiler and Flags
+CXX := g++
+CXXFLAGS := -Wall -Wextra -O2
+
+# Phony targets
+.PHONY: A B C runA runB runC clean
+
+# Compile based on directory name
+A:
+	$(CXX) $(CXXFLAGS) -o A/A A/A.cpp
+
+B:
+	$(CXX) $(CXXFLAGS) -o B/B B/B.cpp
+
+C:
+	$(CXX) $(CXXFLAGS) -o C/C C/C.cpp
+
+# Run targets
+runA: A
+	./A/A
+
+runB: B
+	./B/B
+
+runC: C
+	./C/C
+
+# Clean Rule
+clean:
+	rm -f A/A B/B C/C
